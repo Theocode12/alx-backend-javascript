@@ -1,4 +1,4 @@
-export default function taskBlock(trueOrFalse) {
+export function taskBlock(trueOrFalse) {
 	let task = false;
 	let task2 = true;
       
