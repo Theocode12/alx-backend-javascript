@@ -14,6 +14,5 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
       newResult.push(promise);
     }
   }
-  console.log(newResult);
   return newResult;
 }
