@@ -1,12 +1,27 @@
-/* eslint-disable */
 export class HolbertonClass {
   constructor(year, location) {
-    this._year = year;
-    this._location = location;
+    this.year = year;
+    this.location = location;
+  }
+
+  set year(val) {
+    if (typeof val === 'number') {
+      this._year = val;
+    } else {
+      throw TypeError('year is not a number');
+    }
   }
 
   get year() {
     return this._year;
+  }
+
+  set location(val) {
+    if (typeof val === 'string') {
+      this._location = val;
+    } else {
+      throw TypeError('year is not a string');
+    }
   }
 
   get location() {
@@ -19,9 +34,25 @@ const class2020 = new HolbertonClass(2020, 'San Francisco');
 
 export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
-    this._firstName = firstName;
-    this._lastName = lastName;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this._holbertonClass = holbertonClass;
+  }
+
+  set firstName(val) {
+    if (typeof val === 'string') {
+      this._firstName = val;
+    } else {
+      throw TypeError('firstName is not a string');
+    }
+  }
+
+  set lastName(val) {
+    if (typeof val === 'string') {
+      this._lastName = val;
+    } else {
+      throw TypeError('lastName is not a string');
+    }
   }
 
   get fullName() {
@@ -43,5 +74,5 @@ const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
 const student4 = new StudentHolberton('Donald', 'Bush', class2019);
 const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
-let listOfStudents;
-export default listOfStudents = [student1, student2, student3, student4, student5];
+const listOfStudents = [student1, student2, student3, student4, student5];
+export default listOfStudents;
