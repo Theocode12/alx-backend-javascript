@@ -1,12 +1,14 @@
 export default function cleanSet(myset, startString) {
   const result = [];
-  for (const key of myset) {
-    if (key.startsWith(startString) && startString.length !== 0) {
-      const subString = key.slice(startString.length);
-      if (subString && subString !== key) {
-        result.push(subString);
-      }
-    }
+
+  if (typeof startString !== 'string' || !(myset instanceof Set) || !startString) {
+    return '';
   }
+
+  myset.forEach((value) => {
+    if (value && value.startsWith(startString)) {
+      result.push(value.slice(startString.length));
+    }
+  });
   return result.join('-');
 }
