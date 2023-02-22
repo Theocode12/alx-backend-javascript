@@ -24,12 +24,13 @@ function countStudents(dbName) {
       });
 
       reader.on('close', () => {
-        console.log(`Number of students: ${numOfStudent}`);
+        let result = `Number of students: ${numOfStudent}`;
         for (const corseAndNames of data.entries()) {
-          const msg = `Number of students in ${corseAndNames[0]}: ${corseAndNames[1].length}. List: ${corseAndNames[1].join(', ')}`;
-          console.log(msg);
-          res();
+          const msg = `\nNumber of students in ${corseAndNames[0]}: ${corseAndNames[1].length}. List: ${corseAndNames[1].join(', ')}`;
+          result += msg;
         }
+        console.log(result);
+        res(result);
       });
     } else {
       rej(Error('Cannot load the database'));
