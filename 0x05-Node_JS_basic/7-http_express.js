@@ -12,7 +12,7 @@ app.get('/students', (req, res) => {
   const msg = 'This is the list of our students\n';
   countStudents('database.csv').then((data) => {
     res.end(msg + data);
-  }).catch(() => res.statusCode(404).send());
+  }).catch(() => res.statusCode(500).send());
 });
 
 app.listen(1245);
