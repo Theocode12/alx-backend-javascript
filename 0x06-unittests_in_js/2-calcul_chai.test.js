@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const calculateNumber = require('./1-calcul.js');
+const calculateNumber = require('./2-calcul_chai');
 
 describe('Calculate Number', function () {
 	it('should calulate sum when a is round up', function () {
@@ -22,6 +22,9 @@ describe('Calculate Number', function () {
 	});
 	it('should return error when b is 0', function () {
 		expect(calculateNumber('DIVIDE', 4, 0.3)).to.equal('Error');
+	});
+	it('should check type of return value when b is 0', function () {
+		expect(calculateNumber('DIVIDE', 2, 0)).to.be.a('string')
 	});
 	it('should return a value if b is round up', function () {
 		expect(calculateNumber('DIVIDE', 4, 0.5)).to.equal(4);
