@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
 
 app.get('/students', (req, res) => {
   const msg = 'This is the list of our students\n';
-  countStudents('database.csv').then((data) => {
+  countStudents(process.argv[2]).then((data) => {
     res.end(msg + data);
-  }).catch(() => res.statusCode(500).send());
+  }).catch(() => res.status(500).send(`${msg}Cannot load the database`));
 });
 
 app.listen(1245);
